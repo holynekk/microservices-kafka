@@ -2,7 +2,7 @@ package com.holynekk.kafka.entity;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -19,21 +19,13 @@ public class Order {
     private String orderLocation;
 
     @Column
-    private LocalDate orderDateTime;
+    private LocalDateTime orderDateTime;
 
     @Column
     private String creditCardNumber;
 
-    @OneToMany
+    @OneToMany(mappedBy = "order")
     private List<OrderItem> items;
-
-    public Order(String orderNumber, String orderLocation, LocalDate orderDateTime, String creditCardNumber, List<OrderItem> items) {
-        this.orderNumber = orderNumber;
-        this.orderLocation = orderLocation;
-        this.orderDateTime = orderDateTime;
-        this.creditCardNumber = creditCardNumber;
-        this.items = items;
-    }
 
     public int getOrderId() {
         return orderId;
@@ -59,11 +51,11 @@ public class Order {
         this.orderLocation = orderLocation;
     }
 
-    public LocalDate getOrderDateTime() {
+    public LocalDateTime getOrderDateTime() {
         return orderDateTime;
     }
 
-    public void setOrderDateTime(LocalDate orderDateTime) {
+    public void setOrderDateTime(LocalDateTime orderDateTime) {
         this.orderDateTime = orderDateTime;
     }
 

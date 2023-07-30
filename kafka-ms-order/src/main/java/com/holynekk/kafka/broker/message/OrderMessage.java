@@ -2,7 +2,7 @@ package com.holynekk.kafka.broker.message;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class OrderMessage {
     private String orderLocation;
@@ -10,21 +10,11 @@ public class OrderMessage {
     private String creditCardNumber;
 
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-    private LocalDate orderDateTime;
+    private LocalDateTime orderDateTime;
 
     private String itemName;
     private int price;
     private int quantity;
-
-    public OrderMessage(String orderLocation, String orderNumber, String creditCardNumber, LocalDate orderDateTime, String itemName, int price, int quantity) {
-        this.orderLocation = orderLocation;
-        this.orderNumber = orderNumber;
-        this.creditCardNumber = creditCardNumber;
-        this.orderDateTime = orderDateTime;
-        this.itemName = itemName;
-        this.price = price;
-        this.quantity = quantity;
-    }
 
     public String getOrderLocation() {
         return orderLocation;
@@ -50,11 +40,11 @@ public class OrderMessage {
         this.creditCardNumber = creditCardNumber;
     }
 
-    public LocalDate getOrderDateTime() {
+    public LocalDateTime getOrderDateTime() {
         return orderDateTime;
     }
 
-    public void setOrderDateTime(LocalDate orderDateTime) {
+    public void setOrderDateTime(LocalDateTime orderDateTime) {
         this.orderDateTime = orderDateTime;
     }
 
