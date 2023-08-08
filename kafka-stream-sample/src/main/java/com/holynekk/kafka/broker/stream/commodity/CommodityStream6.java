@@ -14,13 +14,12 @@ import org.apache.kafka.streams.kstream.Produced;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.support.KafkaStreamBrancher;
 import org.springframework.kafka.support.serializer.JsonSerde;
 
 
 // Alternative for stream branching!!!!
-@Configuration
+//@Configuration
 public class CommodityStream6 {
 
     @Bean
